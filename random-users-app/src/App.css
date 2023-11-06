@@ -1,0 +1,21 @@
+table {
+  border-collapse: collapse;
+  width: 80vw;
+  margin: 10vw;
+  margin-top: 5vw;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+th.sortable:focus,
+th.sortable:hover {
+  background-color: #e5f4ff;
+}
