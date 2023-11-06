@@ -15,4 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 This runs the accompanying tests in watch mode.
 
----F.C.R.
+
+Please email me at frankieclaroreilly@gmail.com with any questions.
+
+F.C.R.
