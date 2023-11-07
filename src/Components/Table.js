@@ -6,6 +6,7 @@ import * as api from '../api.js'
 function Table() {
 
     const [users, setUsers] = React.useState([])
+    const [selectedCol, setSelectedCol] = React.useState("")
 
     React.useEffect(() => {
         const fetchAllUsers = async () => {
@@ -41,13 +42,17 @@ function Table() {
             }return 0
         })
         setUsers(sortedUsers)
+        setSelectedCol(column)
     }
 
     return (
         <div className='table-wrapper'>
-            <table summary="Table with user data for name, country, and birthday" role="table">
+            <table className="sortable" summary="Table with user data for name, country, and birthday" role="table">
+                <caption>
+                    <span className="sr-only">column headers with buttons are sortable</span>
+                </caption>
                 <thead role="rowgroup">
-                    <TableHeader handleClick={handleClick}/>
+                    <TableHeader handleClick={handleClick} selected={selectedCol}/>
                 </thead>
                 <tbody role="rowgroup">
                     <TableData users={users}/>
