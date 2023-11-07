@@ -1,12 +1,14 @@
-This project is a small application that renders data about users from a request to a public user api [https://randomuser.me/](https://randomuser.me/). It uses React, jest for testing, and it requires you have both node and npm installed.
+This project is a small application that renders data about users from a request to a public user api: [https://randomuser.me/](https://randomuser.me/). It uses React, jest for testing, and it requires you have both node and npm installed.
 
 The user data renders in a table with columns for first name, last name, country of origin, date of birth, and a dynamic field that calculates whether the user's birthday has occurred yet in this calendar year. The table is sortable on the columns for first name, last name, and country.
 
-To clone this repo onto your local machine, run: 
+To clone this repo onto your local machine, run:
+ 
 ```git clone https://github.com/frankiecr/frankieclaroreilly-browntakehome.git```
 
-Next, navigate into the root directory of the project: 
-``` cd "frankieclaroreilly-browntakehome"```
+Next, navigate into the root directory of the project:
+
+```cd frankieclaroreilly-browntakehome```
 
 To install dependencies, run:
 ### `npm install`
