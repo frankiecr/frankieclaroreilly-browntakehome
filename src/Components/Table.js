@@ -44,14 +44,16 @@ function Table() {
     }
 
     return (
-        <table>
-            <thead>
-                <TableHeader handleClick={handleClick}/>
-            </thead>
-            <tbody>
-                <TableData users={users}/>
-            </tbody>
-        </table>
+        <div className='table-wrapper'>
+            <table summary="Table with user data for name, country, and birthday" role="table">
+                <thead role="rowgroup">
+                    <TableHeader handleClick={handleClick}/>
+                </thead>
+                <tbody role="rowgroup">
+                    <TableData users={users}/>
+                </tbody>
+            </table>
+        </div>
     )
 }
 

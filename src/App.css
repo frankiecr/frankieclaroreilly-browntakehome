@@ -1,8 +1,13 @@
 table {
   border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrapper {
   width: 80vw;
   margin: 10vw;
   margin-top: 5vw;
+  overflow-x: auto;
 }
 
 td, th {

@@ -23,12 +23,12 @@ function TableRow({user}) {
     }
 
     return (
-        <tr>
-            <td>{user.firstname}</td>
-            <td>{user.lastname}</td>
-            <td>{user.country}</td>
-            <td>{formattedBirthday}</td>
-            <td>{generateDynamicBirthday(user.dob)}</td>
+        <tr scope="row" role="row">
+            <td role="cell">{user.firstname}</td>
+            <td role="cell">{user.lastname}</td>
+            <td role="cell">{user.country}</td>
+            <td role="cell">{formattedBirthday}</td>
+            <td role="cell">{generateDynamicBirthday(user.dob)}</td>
         </tr>
     )
 }
