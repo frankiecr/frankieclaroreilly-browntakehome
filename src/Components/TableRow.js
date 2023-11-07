@@ -23,7 +23,7 @@ function TableRow({user}) {
     }
 
     return (
-        <tr scope="row" role="row">
+        <tr role="row">
             <td role="cell">{user.firstname}</td>
             <td role="cell">{user.lastname}</td>
             <td role="cell">{user.country}</td>

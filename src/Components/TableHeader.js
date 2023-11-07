@@ -1,19 +1,21 @@
-function TableHeader({handleClick, selected}) {
+import React from 'react'
 
-    if (selected != "") {
-        const selectedCol = document.getElementById(selected + '-header')
+function TableHeader({handleClick}) {
+    const [selectedCol, setSelectedCol] = React.useState("")
+
+    if (selectedCol !== "") {
+        const newSelectedCol = document.getElementById(selectedCol + '-header')
         const prevSelectedCol = document.getElementsByClassName('selected-header')
         const prevSelectedColArr = Array.from(prevSelectedCol)
-        if (prevSelectedColArr != []) {
-            prevSelectedColArr.map(col => {
-                col.classList.remove('selected-header')
-            })
+        if (prevSelectedColArr.length >= []) {
+            prevSelectedColArr.map(col => col.classList.remove('selected-header'))
         }
-        selectedCol.classList.add('selected-header')
+        newSelectedCol.classList.add('selected-header')
+        setSelectedCol(newSelectedCol)
     }
 
     return (
-        <tr scope="row" role="row">
+        <tr role="row">
             <th id="firstname-header" className="sortable" aria-sort="ascending" scope="col" role="columnheader">
                 <button onClick={handleClick} id="firstname">
                     First Name

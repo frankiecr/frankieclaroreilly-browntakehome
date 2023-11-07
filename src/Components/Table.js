@@ -4,9 +4,7 @@ import TableHeader from './TableHeader.js'
 import * as api from '../api.js'
 
 function Table() {
-
     const [users, setUsers] = React.useState([])
-    const [selectedCol, setSelectedCol] = React.useState("")
 
     React.useEffect(() => {
         const fetchAllUsers = async () => {
@@ -42,22 +40,23 @@ function Table() {
             }return 0
         })
         setUsers(sortedUsers)
-        setSelectedCol(column)
     }
 
     return (
         <div className='table-wrapper'>
+            {users ? 
             <table className="sortable" summary="Table with user data for name, country, and birthday" role="table">
                 <caption>
                     <span className="sr-only">column headers with buttons are sortable</span>
                 </caption>
-                <thead role="rowgroup">
-                    <TableHeader handleClick={handleClick} selected={selectedCol}/>
+                <thead>
+                    <TableHeader handleClick={handleClick}/>
                 </thead>
-                <tbody role="rowgroup">
+                <tbody>
                     <TableData users={users}/>
                 </tbody>
             </table>
+            : <div>Loading...</div>}
         </div>
     )
 }
