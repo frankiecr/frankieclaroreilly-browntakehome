@@ -23,7 +23,7 @@ function TableRow({user}) {
     }
 
     return (
-        <tr tabIndex={0}>
+        <tr>
             <td>{user.firstname}</td>
             <td>{user.lastname}</td>
             <td>{user.country}</td>
