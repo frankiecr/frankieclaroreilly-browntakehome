@@ -1,19 +1,4 @@
-import React from 'react'
-
 function TableHeader({handleClick}) {
-    const [selectedCol, setSelectedCol] = React.useState("")
-
-    if (selectedCol !== "") {
-        const newSelectedCol = document.getElementById(selectedCol + '-header')
-        const prevSelectedCol = document.getElementsByClassName('selected-header')
-        const prevSelectedColArr = Array.from(prevSelectedCol)
-        if (prevSelectedColArr.length >= []) {
-            prevSelectedColArr.map(col => col.classList.remove('selected-header'))
-        }
-        newSelectedCol.classList.add('selected-header')
-        setSelectedCol(newSelectedCol)
-    }
-
     return (
         <tr role="row">
             <th id="firstname-header" className="sortable" aria-sort="ascending" scope="col" role="columnheader">

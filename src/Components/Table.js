@@ -1,7 +1,7 @@
 import React from 'react'
 import TableData from './TableData.js'
 import TableHeader from './TableHeader.js'
-import * as api from '../api.js'
+import * as utils from '../utils.js'
 
 function Table() {
     const [users, setUsers] = React.useState([])
@@ -9,7 +9,8 @@ function Table() {
     React.useEffect(() => {
         const fetchAllUsers = async () => {
             try {
-                const users = await api.fetchUsers()
+                const limit = 100
+                const users = await utils.fetchUsers(limit)
                     .then(json => {
                         return json.map(u => {
                             return {
@@ -29,22 +30,27 @@ function Table() {
         fetchAllUsers()
     }, [])
 
+    function setSelectedColumn(column) {
+        const newSelectedCol = document.getElementById(column + '-header')
+        newSelectedCol.classList.add('selected-header')
+        const prevSelectedCol = document.getElementsByClassName('selected-header')
+        const prevSelectedColArr = Array.from(prevSelectedCol)
+        if (prevSelectedColArr.length >= []) {
+            prevSelectedColArr.map(col => col.classList.remove('selected-header'))
+        }
+        newSelectedCol.classList.add('selected-header')
+    }
+
     function handleClick(e) {
         const column = e.target.id
+        setSelectedColumn(column)
         const userData = [...users]
-        const sortedUsers = userData.sort(function (a, b){
-            if (a[column] < b[column]){
-                return -1
-            } else if (a[column] > b[column]){
-                return 1
-            }return 0
-        })
-        setUsers(sortedUsers)
+        const usersSorted = utils.sortUsers(userData, column)
+        setUsers(usersSorted)
     }
 
     return (
         <div className='table-wrapper'>
-            {users ? 
             <table className="sortable" summary="Table with user data for name, country, and birthday" role="table">
                 <caption>
                     <span className="sr-only">column headers with buttons are sortable</span>
@@ -56,7 +62,6 @@ function Table() {
                     <TableData users={users}/>
                 </tbody>
             </table>
-            : <div>Loading...</div>}
         </div>
     )
 }
