@@ -35,7 +35,7 @@ function Table() {
         newSelectedCol.classList.add('selected-header')
         const prevSelectedCol = document.getElementsByClassName('selected-header')
         const prevSelectedColArr = Array.from(prevSelectedCol)
-        if (prevSelectedColArr.length >= []) {
+        if (prevSelectedColArr.length > 0) {
             prevSelectedColArr.map(col => col.classList.remove('selected-header'))
         }
         newSelectedCol.classList.add('selected-header')

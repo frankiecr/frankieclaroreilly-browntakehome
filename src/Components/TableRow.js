@@ -5,19 +5,19 @@ function TableRow({user}) {
         const today = new Date(Date.now())
         const currentMonth = today.getMonth() + 1
         const bdayMonth = new Date(birthdate).getMonth() + 1
-        if (bdayMonth === currentMonth){
+        if (bdayMonth === currentMonth) {
             const currentDay = new Date(today).getDate()
             const bdayDay = new Date(birthdate).getDate()
-            if (currentDay < bdayDay){
+            if (currentDay < bdayDay) {
                 return "coming up"
-            }else if (currentDay === bdayDay){
+            } else if (currentDay === bdayDay) {
                 return "is today!"
-            }else{
+            } else {
                 return "already happened"
             }
-        }else if (currentMonth > bdayMonth){
+        } else if (currentMonth > bdayMonth) {
             return "already happened"
-        }else{
+        } else {
             return "coming up"
         }
     }
